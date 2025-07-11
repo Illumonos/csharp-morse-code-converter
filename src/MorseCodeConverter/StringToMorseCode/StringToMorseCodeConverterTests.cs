@@ -6,7 +6,7 @@ public sealed class StringToMorseCodeConverterTests
 {
     [Theory]
     [MemberData(nameof(StringToMorseCodeTestCases.ValidMessages), MemberType = typeof(StringToMorseCodeTestCases))]
-    public void For_StringToMorseCodeConverter_When_TryConvert_With_Valid_MorseCode_Then_Return_Expected_Message(string expectedMessage, string message)
+    public void For_StringToMorseCodeConverter_When_TryConvert_With_Valid_MorseCode_Then_Return_Expected_Message(string message, string expectedMessage)
     {
         StringToMorseCodeConverterResult.Success expectedResult = new(expectedMessage);
         StringToMorseCodeConverterResult actualResult = StringToMorseCodeConverter.TryConvert(message);
@@ -26,10 +26,10 @@ public sealed class StringToMorseCodeConverterTests
     {
         public static readonly TheoryData<string, string> ValidMessages = new()
         {
-            { ".-", "A" },
-            { ".- / -... / -.-. / -..", "A B C D" },
-            { ".... . .-.. .-.. --- / .-- --- .-. .-.. -..", "HELLO WORLD" },
-            { "- .... . .-. . / .. ... / -. --- / ... .--. --- --- -.", "THERE IS NO SPOON" }
+            { "A", ".-" },
+            { "A B C D", ".- / -... / -.-. / -.." },
+            { "HELLO WORLD", ".... . .-.. .-.. --- / .-- --- .-. .-.. -.." },
+            { "THERE IS NO SPOON", "- .... . .-. . / .. ... / -. --- / ... .--. --- --- -." }
         };
 
         public static readonly TheoryData<string?, string> InvalidMessages = new()
