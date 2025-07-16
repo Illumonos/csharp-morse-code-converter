@@ -102,6 +102,6 @@ internal static class StringToMorseCodeConverter
             }
         }
         
-        return new StringToMorseCodeConverterResult.Success(result.ToString().TrimEnd());
+        return new StringToMorseCodeConverterResult.Success(result.ToString());
     }
 }
