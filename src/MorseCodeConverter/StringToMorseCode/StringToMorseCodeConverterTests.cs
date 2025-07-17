@@ -29,7 +29,8 @@ public sealed class StringToMorseCodeConverterTests
             { "A", ".-" },
             { "A B C D", ".- / -... / -.-. / -.." },
             { "HELLO WORLD", ".... . .-.. .-.. --- / .-- --- .-. .-.. -.." },
-            { "THERE IS NO SPOON", "- .... . .-. . / .. ... / -. --- / ... .--. --- --- -." }
+            { "THERE IS NO SPOON", "- .... . .-. . / .. ... / -. --- / ... .--. --- --- -." },
+            { "Dan da Dan", "-.. .- -. / -.. .- / -.. .- -." }
         };
 
         public static readonly TheoryData<string?, string> InvalidMessages = new()

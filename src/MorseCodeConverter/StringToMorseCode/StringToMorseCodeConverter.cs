@@ -79,10 +79,11 @@ internal static class StringToMorseCodeConverter
         
         StringBuilder result = new();
 
-        foreach (string word in words)
+        for (int index = 0; index < words.Length; index++)
         {
+            string word = words[index];
             IList<string> morseCodeWord = new List<string>();
-            
+
             foreach (char letter in word)
             {
                 char normalisedLetter = char.ToUpperInvariant(letter);
@@ -96,12 +97,12 @@ internal static class StringToMorseCodeConverter
 
             result.Append(string.Join(_morseCodeLetterSeparator, morseCodeWord));
 
-            if (word != words.Last())
+            if (index < words.Length - 1)
             {
                 result.Append(_morseCodeWordSeparator);
             }
         }
-        
+
         return new StringToMorseCodeConverterResult.Success(result.ToString());
     }
 }
